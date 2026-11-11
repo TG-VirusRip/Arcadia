@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#090711">
+  <title>ARCADIA — Luxury Collection</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div><div class="brand">ARCADIA<span>✦</span></div><div class="tagline">COLLECT YOUR LEGEND</div></div>
+    <div class="balance"><span>✦</span><b id="coins">---</b></div>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-kicker">THE ART OF COLLECTING</div>
+        <h1>Твоя история.<br><em>Твоя легенда.</em></h1>
+        <p>Открывай коллекции, находи редкие экземпляры и собирай свою уникальную историю.</p>
+        <div class="hero-mark">A</div>
+      </div>
+      <div class="section-heading"><div><small>КОЛЛЕКЦИИ</small><h2>Выбери свой пак</h2></div><span class="live-dot">BETA</span></div>
+      <div id="packs" class="packs"></div>
+      <button id="dailyBtn" class="daily"><span>✧</span><span><b>Ежедневная награда</b><small>Забрать 200 монет</small></span><strong>→</strong></button>
+    </section>
+
+    <section id="collection" class="page">
+      <div class="section-heading"><div><small>ТВОИ ЭКЗЕМПЛЯРЫ</small><h2>Коллекция</h2></div><span id="cardCountBadge" class="count-badge">0</span></div>
+      <div class="filters">
+        <input id="searchCards" type="search" placeholder="Поиск по названию...">
+        <select id="rarityFilter"><option value="">Все редкости</option><option>Common</option><option>Rare</option><option>Epic</option><option>Legendary</option><option>Mythic</option><option>Limited</option></select>
+      </div>
+      <div id="collectionGrid" class="collection-grid"></div>
+    </section>
+
+    <section id="profile" class="page">
+      <div class="profile-hero">
+        <div class="avatar" id="avatar">A</div><div><small>COLLECTOR PROFILE</small><h2 id="username">Игрок</h2><p id="userHandle">@collector</p></div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat"><small>БАЛАНС</small><b id="profileCoins">0</b><span>✦ монет</span></div>
+        <div class="stat"><small>КАРТЫ</small><b id="cardCount">0</b><span>экземпляров</span></div>
+        <div class="stat"><small>РЕДКИЕ</small><b id="rareCount">0</b><span>Epic и выше</span></div>
+      </div>
+      <div class="section-heading"><div><small>ПЕРСОНАЛИЗАЦИЯ</small><h2>Настройки</h2></div></div>
+      <div class="settings">
+        <label>Звуковые эффекты<input id="soundToggle" type="checkbox" checked></label>
+        <label>Вибрация<input id="vibeToggle" type="checkbox" checked></label>
+        <label>Язык<select id="language"><option value="ru">Русский</option><option value="en">English</option></select></label>
+      </div>
+      <p class="note">ARCADIA BETA · Внутриигровые монеты не имеют денежной стоимости.</p>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button data-page="home" class="selected"><span>⌂</span><small>Главная</small></button>
+    <button data-page="collection"><span>▤</span><small>Коллекция</small></button>
+    <button data-page="profile"><span>◉</span><small>Профиль</small></button>
+  </nav>
+</div>
+
+<div id="openModal" class="overlay hidden">
+  <div class="modal-panel">
+    <button class="close" id="closeModal">×</button>
+    <div class="modal-kicker">ARCADIA · PACK SELECT</div>
+    <h2 id="selectedPack">Открытие пака</h2>
+    <p id="packInfo" class="muted"></p>
+    <div class="quantity"><button id="minus">−</button><b id="qty">1</b><button id="plus">+</button></div>
+    <div class="quick"><button data-add="-50">−50</button><button data-add="-10">−10</button><button data-add="10">+10</button><button data-add="50">+50</button></div>
+    <div id="totalPrice" class="total-price"></div>
+    <button id="openBtn" class="primary-btn">ОТКРЫТЬ ПАК <span>✦</span></button>
+    <small class="limit-note">До 10 паков за одно открытие в Beta</small>
+  </div>
+</div>
+
+<div id="reveal" class="overlay reveal hidden">
+  <button id="revealClose" class="close reveal-close">×</button>
+  <div class="reveal-kicker">A R C A D I A · R E V E A L</div>
+  <div id="packWrapper" class="pack-wrapper"><div class="foil"><span>✦</span><b>ARCADIA</b><small>SWIPE TO REVEAL</small></div></div>
+  <p id="swipeHint">Проведи пальцем по паку, чтобы открыть</p>
+  <div id="cardStage" class="card-stage hidden"><button id="prevCard" class="arrow">‹</button><div id="cardView" class="trading-card"></div><button id="nextCard" class="arrow">›</button></div>
+  <div id="cardCounter" class="card-counter"></div>
+</div>
+<script src="./app.js"></script>
+</body>
+</html>
