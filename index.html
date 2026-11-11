@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="ru">
 <head>
@@ -5,19 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#090914">
   <title>ARCADIA</title>
-  <link rel="stylesheet" href="/style.css">
+
+  <link rel="stylesheet" href="./style.css">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 <div id="app">
   <header class="top">
-    <div><div class="brand">ARCADIA</div><div class="tag">COLLECT YOUR LEGEND</div></div>
+    <div>
+      <div class="brand">ARCADIA</div>
+      <div class="tag">COLLECT YOUR LEGEND</div>
+    </div>
     <div class="coins">✦ <span id="coins">---</span></div>
   </header>
 
   <main>
     <section id="home" class="page active">
-      <div class="hero"><span class="eyebrow">ТВОЯ КОЛЛЕКЦИЯ НАЧИНАЕТСЯ ЗДЕСЬ</span><h1>Открой свою<br><em>легенду</em></h1><p>Выбирай вселенную. Открывай паки. Находи редкие карты.</p></div>
+      <div class="hero">
+        <span class="eyebrow">ТВОЯ КОЛЛЕКЦИЯ НАЧИНАЕТСЯ ЗДЕСЬ</span>
+        <h1>Открой свою<br><em>легенду</em></h1>
+        <p>Выбирай вселенную. Открывай паки. Находи редкие карты.</p>
+      </div>
       <div class="section-title">ВЫБЕРИ ПАК</div>
       <div id="packs" class="packs"></div>
       <button id="dailyBtn" class="daily">🎁 Забрать ежедневный бонус · 200 монет</button>
@@ -29,12 +38,26 @@
     </section>
 
     <section id="profile" class="page">
-      <div class="profile-card"><div class="avatar">A</div><h2 id="username">Игрок</h2><p>Коллекционер ARCADIA</p><div class="stats"><div><b id="profileCoins">0</b><small>МОНЕТЫ</small></div><div><b id="cardCount">0</b><small>КАРТЫ</small></div></div></div>
+      <div class="profile-card">
+        <div class="avatar">A</div>
+        <h2 id="username">Игрок</h2>
+        <p>Коллекционер ARCADIA</p>
+        <div class="stats">
+          <div><b id="profileCoins">0</b><small>МОНЕТЫ</small></div>
+          <div><b id="cardCount">0</b><small>КАРТЫ</small></div>
+        </div>
+      </div>
+
       <div class="section-title">НАСТРОЙКИ</div>
       <div class="settings">
         <label>Звуковые эффекты <input id="soundToggle" type="checkbox" checked></label>
         <label>Вибрация <input id="vibeToggle" type="checkbox" checked></label>
-        <label>Язык <select id="language"><option value="ru">Русский</option><option value="en">English</option></select></label>
+        <label>Язык
+          <select id="language">
+            <option value="ru">Русский</option>
+            <option value="en">English</option>
+          </select>
+        </label>
       </div>
       <p class="hint">Настройки сохраняются на этом устройстве. Вибрация зависит от поддержки Telegram и телефона.</p>
     </section>
@@ -52,12 +75,20 @@
     <button class="close" id="closeModal">✕</button>
     <div class="section-title">ОТКРЫТИЕ ПАКА</div>
     <div id="selectedPack" class="selected-pack"></div>
+
     <div class="quantity">
-      <button id="minus">−</button><strong id="qty">1</strong><button id="plus">+</button>
+      <button id="minus">−</button>
+      <strong id="qty">1</strong>
+      <button id="plus">+</button>
     </div>
+
     <div class="quick">
-      <button data-add="-50">-50</button><button data-add="-10">-10</button><button data-add="10">+10</button><button data-add="50">+50</button>
+      <button data-add="-50">-50</button>
+      <button data-add="-10">-10</button>
+      <button data-add="10">+10</button>
+      <button data-add="50">+50</button>
     </div>
+
     <div id="totalPrice" class="price"></div>
     <button id="openBtn" class="primary">ОТКРЫТЬ</button>
   </div>
@@ -66,15 +97,26 @@
 <div id="reveal" class="reveal hidden">
   <button id="revealClose" class="close">✕</button>
   <div class="reveal-label">ARCADIA · CARD REVEAL</div>
-  <div id="packWrapper" class="pack-wrapper"><div class="foil">✦<br><b>ARCADIA</b><small>SWIPE TO OPEN</small></div></div>
+
+  <div id="packWrapper" class="pack-wrapper">
+    <div class="foil">
+      ✦<br>
+      <b>ARCADIA</b>
+      <small>SWIPE TO OPEN</small>
+    </div>
+  </div>
+
   <p id="swipeHint">Проведи пальцем по паку, чтобы разорвать его</p>
+
   <div id="cardStage" class="card-stage hidden">
     <button id="prevCard" class="arrow">‹</button>
     <div id="cardView" class="trading-card"></div>
     <button id="nextCard" class="arrow">›</button>
   </div>
+
   <div id="cardCounter"></div>
 </div>
-<script src="/app.js"></script>
+
+<script src="./app.js"></script>
 </body>
 </html>
